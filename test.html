@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Adoption Agency</title>
+		<link rel="stylesheet" href="/static/default.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alice&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://kit.fontawesome.com/735474be52.js" crossorigin="anonymous"></script>
+    </head>
+	<body>
+		<nav id="navbar">
+			<a id="home" class="h2" href="/"><b>Adoption Agency</b></a>
+			<div style="margin-right: 50px;">
+				<a class="nav-item" href="/users"><b>users</b></a>
+				<a class="nav-btn" href="/tags/new"><b>add tag</b></a>
+			</div>
+		</nav>
+
+        <div class="info-box">
+            <p>
+                <i class="fa-solid fa-circle-info info-icon"></i>
+                <span class="info-heading">pet has been added</span>
+            </p>
+        </div>
+
+<h1>Pets</h1>
+
+<div class="row pets-listing">
+
+
+  <div >
+    <img src="https://images.ctfassets.net/ub3bwfd53mwy/5WFv6lEUb1e6kWeP06CLXr/acd328417f24786af98b1750d90813de/4_Image.jpg?w=750">
+    <a class="pet-name" href="{{ url_for('edit_pet', pet_id=pet.id) }}">Rosco</a>
+    <b> is available!</b>
+  </div>
+
+</div>
+
+<a class="btn btn-primary" href="{{ url_for('add_pet') }}">Add a Pet</a>
+
+    </body>
+</html>
