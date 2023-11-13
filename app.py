@@ -1,7 +1,5 @@
 from flask import Flask, url_for, render_template, redirect, flash, jsonify
 
-from flask_debugtoolbar import DebugToolbarExtension
-
 from models import db, connect_db, Pet
 from forms import AddPetForm, EditPetForm
 
@@ -15,22 +13,19 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 connect_db(app)
 db.create_all()
 
-toolbar = DebugToolbarExtension(app)
-
 @app.route("/")
-def index():
+def show_pets():
 
     pets = Pet.query.all()
     return render_template("index.html", pets=pets)
 
-
 @app.route("/add", methods=["GET", "POST"])
-def add_pet():
+def list_pets():
 
     form = AddPetForm()
 
     if form.validate_on_submit():
-        data = {k: v for k, v in form.data.items() if k != "csrf_token"}
+        data = {key: val for key, val in form.data.items() if key != "csrf_token"}
         new_pet = Pet(**data)
         db.session.add(new_pet)
         db.session.commit()
@@ -39,7 +34,6 @@ def add_pet():
 
     else:
         return render_template("pet_add_form.html", form=form)
-
 
 @app.route("/<int:pet_id>", methods=["GET", "POST"])
 def edit_pet(pet_id):

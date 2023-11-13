@@ -3,31 +3,38 @@
 	<head>
 		<title>Adoption Agency</title>
 		<link rel="stylesheet" href="default.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Alice&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://kit.fontawesome.com/735474be52.js" crossorigin="anonymous"></script>
-    </head>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Alice&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script
+			src="https://kit.fontawesome.com/735474be52.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
 	<body>
 		<nav id="navbar">
 			<a id="home" class="h2" href="/"><b>Adoption Agency</b></a>
-			<div style="margin-right: 50px;">
-				<a class="nav-item" href="/users"><b>users</b></a>
-				<a class="nav-btn" href="/tags/new"><b>add tag</b></a>
+			<div style="margin-right: 30px">
+				<!--<a class="nav-item" href="/users"><b>users</b></a>
+				<a class="nav-btn" href="/tags/new"><b>add tag</b></a>-->
 			</div>
 		</nav>
 
-        {% for msg in get_flashed_messages() %}
-        <div class="info-box">
-            <p>
-                <i class="fa-solid fa-circle-info info-icon"></i>
-                <span class="info-heading">{{msg}}</span>
-            </p>
-        </div>
-        {% endfor %}
-
-        {% block content %}{% endblock %}
-
-    </body>
+		<div id="content">
+			{% for msg in get_flashed_messages() %}
+			<div class="info-box">
+				<p>
+					<i class="fa-solid fa-circle-info info-icon"></i>
+					<span class="info-heading">{{msg}}</span>
+				</p>
+			</div>
+			{% endfor %} 
+            
+            {% block content %}{% endblock %}
+		</div>
+	</body>
 </html>

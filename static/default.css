@@ -97,13 +97,20 @@ img {
     object-fit: cover;
 }
 
-img:hover {
-    box-shadow: 0 0 2px 1px var(--brand-color);
-  }
-
 .pet-name {
     color: var(--brand-color);
     text-decoration: none;
+}
+
+.pets-list {
+    display: flex;
+    flex-direction: row;
+}
+
+.listing {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
 }
 
 #navbar {
@@ -150,7 +157,7 @@ img:hover {
 }
 
 #content {
-    display: flex;
+    margin: 0px 40px;
 }
 
 .close-icon {
